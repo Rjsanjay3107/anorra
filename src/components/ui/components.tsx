@@ -10,11 +10,18 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(({ className, error, label, id, ...props }, ref) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>(({ className, error, label, id, value, onChange, ...props }, ref) => {
   return (
     <div className="w-full">
       {label && <label htmlFor={id} className="block text-sm font-medium text-gray-300 mb-2">{label}</label>}
-      <input ref={ref} id={id} className={cn('w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500', 'focus:outline-none focus:ring-2 focus:ring-[#C9A962] focus:border-transparent', 'transition-all duration-300', error && 'border-red-500 focus:ring-red-500', className)} {...props} />
+      <input 
+        ref={ref} 
+        id={id} 
+        value={value}
+        onChange={onChange}
+        className={cn('w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500', 'focus:outline-none focus:ring-2 focus:ring-[#C9A962] focus:border-transparent', 'transition-all duration-300', error && 'border-red-500 focus:ring-red-500', className)} 
+        {...props} 
+      />
       {error && <p className="mt-1 text-sm text-red-500" role="alert">{error}</p>}
     </div>
   );
@@ -26,10 +33,10 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
 }
 
-export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ className, error, label, id, ...props }, ref) => (
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ className, error, label, id, value, onChange, ...props }, ref) => (
   <div className="w-full">
     {label && <label htmlFor={id} className="block text-sm font-medium text-gray-300 mb-2">{label}</label>}
-    <textarea ref={ref} id={id} className={cn('w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500', 'focus:outline-none focus:ring-2 focus:ring-[#C9A962] focus:border-transparent', 'transition-all duration-300 resize-none', error && 'border-red-500 focus:ring-red-500', className)} {...props} />
+    <textarea ref={ref} id={id} value={value} onChange={onChange} className={cn('w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500', 'focus:outline-none focus:ring-2 focus:ring-[#C9A962] focus:border-transparent', 'transition-all duration-300 resize-none', error && 'border-red-500 focus:ring-red-500', className)} {...props} />
     {error && <p className="mt-1 text-sm text-red-500" role="alert">{error}</p>}
   </div>
 ));
@@ -41,10 +48,10 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   options: { value: string; label: string }[];
 }
 
-export const Select = forwardRef<HTMLSelectElement, SelectProps>(({ className, error, label, options, id, ...props }, ref) => (
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(({ className, error, label, options, id, value, onChange, ...props }, ref) => (
   <div className="w-full">
     {label && <label htmlFor={id} className="block text-sm font-medium text-gray-300 mb-2">{label}</label>}
-    <select ref={ref} id={id} className={cn('w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white', 'focus:outline-none focus:ring-2 focus:ring-[#C9A962] focus:border-transparent', 'transition-all duration-300 appearance-none cursor-pointer bg-no-repeat', error && 'border-red-500 focus:ring-red-500', className)} {...props}>
+    <select ref={ref} id={id} value={value} onChange={onChange} className={cn('w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white', 'focus:outline-none focus:ring-2 focus:ring-[#C9A962] focus:border-transparent', 'transition-all duration-300 appearance-none cursor-pointer bg-no-repeat', error && 'border-red-500 focus:ring-red-500', className)} {...props}>
       <option value="" className="text-gray-500">Select a subject</option>
       {options.map(o => <option key={o.value} value={o.value} className="text-gray-900 bg-white">{o.label}</option>)}
     </select>
@@ -58,10 +65,10 @@ interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'typ
   error?: string;
 }
 
-export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({ className, label, error, id, ...props }, ref) => (
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({ className, label, error, id, checked, onChange, ...props }, ref) => (
   <div className="w-full">
     <label htmlFor={id} className="flex items-start gap-3 cursor-pointer group">
-      <input ref={ref} type="checkbox" id={id} className={cn('w-5 h-5 mt-0.5 rounded border-2 border-white/20 bg-white/5 text-[#C9A962]', 'focus:outline-none focus:ring-2 focus:ring-[#C9A962] focus:ring-offset-2 focus:ring-offset-[#0D0D0D]', 'transition-all duration-300 cursor-pointer', 'checked:bg-[#C9A962] checked:border-[#C9A962]', className)} {...props} />
+      <input ref={ref} type="checkbox" id={id} checked={checked} onChange={onChange} className={cn('w-5 h-5 mt-0.5 rounded border-2 border-white/20 bg-white/5 text-[#C9A962]', 'focus:outline-none focus:ring-2 focus:ring-[#C9A962] focus:ring-offset-2 focus:ring-offset-[#0D0D0D]', 'transition-all duration-300 cursor-pointer', 'checked:bg-[#C9A962] checked:border-[#C9A962]', className)} {...props} />
       <span className="text-sm text-gray-300 leading-relaxed group-hover:text-white transition-colors">{label}</span>
     </label>
     {error && <p className="mt-1 text-sm text-red-500 ml-8" role="alert">{error}</p>}
