@@ -18,7 +18,10 @@ export function Categories() {
 
   const handleCategoryClick = (categoryId: string) => {
     setActiveCategory(activeCategory === categoryId ? null : categoryId);
-    scrollToSection('products');
+    // Small delay to allow category filtering to apply
+    setTimeout(() => {
+      scrollToSection('products');
+    }, 100);
   };
 
   return (
