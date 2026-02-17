@@ -6,14 +6,14 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
-  title: "Anorra | Premium Brand - Bespoke Solutions",
-  description: "Anorra - Premium UK-based brand offering bespoke solutions, quality craftsmanship, and modern premium design.",
+  title: "ANORRA | Calm, Thoughtful Living",
+  description: "Design-led, sustainable living brand creating calm experiences across hospitality, wellness, and gifting.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-[#0D0D0D] text-white`}>
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-[#1A1814] text-[#F5F3EE]`}>
         {children}
       </body>
     </html>

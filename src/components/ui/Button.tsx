@@ -9,19 +9,19 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = 'primary', size = 'md', isLoading, children, disabled, ...props }, ref) => {
-    const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#C9A962] disabled:opacity-50 disabled:cursor-not-allowed';
+    const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E3BF23] disabled:opacity-50 disabled:cursor-not-allowed rounded-md';
     
     const variants = {
-      primary: 'bg-[#C9A962] text-[#0D0D0D] hover:bg-[#D4B978] focus:ring-[#C9A962]',
-      secondary: 'bg-[#0D0D0D] text-white hover:bg-[#1A1A1A] focus:ring-[#0D0D0D]',
-      outline: 'border-2 border-[#C9A962] text-[#C9A962] hover:bg-[#C9A962] hover:text-[#0D0D0D] focus:ring-[#C9A962]',
-      ghost: 'text-gray-300 hover:text-white hover:bg-white/10 focus:ring-white/30',
+      primary: 'bg-[#E3BF23] text-[#674E38] hover:bg-[#F0D040] focus:ring-[#E3BF23]',
+      secondary: 'bg-[#8F907E] text-[#FFFFFA] hover:bg-[#9FA08E] focus:ring-[#8F907E]',
+      outline: 'border-2 border-[#E3BF23] text-[#E3BF23] hover:bg-[#E3BF23] hover:text-[#674E38] focus:ring-[#E3BF23]',
+      ghost: 'text-[#FFFFFA] hover:text-[#FFFFFA] hover:bg-white/10 focus:ring-white/30',
     };
     
     const sizes = {
-      sm: 'px-4 py-2 text-sm rounded-md',
-      md: 'px-6 py-3 text-base rounded-lg',
-      lg: 'px-8 py-4 text-lg rounded-lg',
+      sm: 'px-4 py-2 text-sm',
+      md: 'px-5 py-2.5 text-base',
+      lg: 'px-6 py-3 text-lg',
     };
 
     return (
