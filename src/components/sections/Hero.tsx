@@ -11,7 +11,7 @@ const bannerSlides = [
 
 export function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black px-8 md:px-12 lg:px-16">
+    <section id="hero" className="relative h-[26vh] md:min-h-screen lg:min-h-screen md:flex md:items-center md:justify-center overflow-hidden bg-black md:px-12 lg:px-16">
       <HeroBanner slides={bannerSlides} autoInterval={3000} />
     </section>
   );

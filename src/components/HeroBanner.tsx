@@ -50,7 +50,46 @@ export function HeroBanner({ slides, autoInterval = 3000, slideSpeed = 0.5 }: He
 
   return (
     <div className="absolute inset-0 overflow-hidden">
-      <div className="absolute inset-0 w-full h-full">
+      {/* Mobile-only container with 26vh height */}
+      <div className="md:hidden lg:hidden relative w-full h-[26vh]">
+        <div className="absolute inset-0 w-full h-full">
+          {slides.map((slide, index) => {
+            const isActive = index === currentIndex;
+            
+            return (
+              <div
+                key={index}
+                className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
+                  isActive ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                }`}
+              >
+                {slide.type === 'video' ? (
+                  <div className="w-full h-full flex items-center justify-center bg-black">
+                    <video
+                      ref={index === currentIndex ? videoRef : undefined}
+                      src={slide.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-auto h-full max-w-full object-contain md:px-8"
+                    />
+                  </div>
+                ) : (
+                  <img
+                    src={slide.src}
+                    alt={slide.alt || `Slide ${index + 1}`}
+                    className="w-full h-full object-cover md:object-cover lg:object-cover object-cover"
+                  />
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Desktop and tablet container (unchanged) */}
+      <div className="hidden md:block lg:block absolute inset-0 w-full h-full">
         {slides.map((slide, index) => {
           const isActive = index === currentIndex;
           
@@ -70,14 +109,14 @@ export function HeroBanner({ slides, autoInterval = 3000, slideSpeed = 0.5 }: He
                     muted
                     loop
                     playsInline
-                    className="w-full h-full object-contain"
+                    className="w-auto h-full max-w-full object-contain px-8"
                   />
                 </div>
               ) : (
                 <img
                   src={slide.src}
                   alt={slide.alt || `Slide ${index + 1}`}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover"
                 />
               )}
             </div>
@@ -87,15 +126,15 @@ export function HeroBanner({ slides, autoInterval = 3000, slideSpeed = 0.5 }: He
 
       <div className="absolute inset-0 bg-black/20 z-20" />
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex gap-1 md:bottom-8 md:gap-2">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-1 rounded-full transition-all duration-500 ${
+            className={`h-0.5 rounded-full transition-all duration-500 md:h-1 ${
               index === currentIndex
-                ? 'bg-white w-12'
-                : 'bg-white/40 w-6 hover:bg-white/60'
+                ? 'bg-white w-6 md:w-12'
+                : 'bg-white/40 w-3 md:w-6 hover:bg-white/60'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
