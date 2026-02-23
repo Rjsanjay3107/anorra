@@ -9,14 +9,17 @@ import { useUIStore } from '@/stores/uiStore';
 import { scrollToSection } from '@/lib/utils';
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [logoVisible, setLogoVisible] = useState(true);
   const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useUIStore();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 60);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
+    // initialize based on current position
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -26,11 +29,15 @@ export function Header() {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${isScrolled || isMobileMenuOpen ? 'bg-[var(--color-light)]/95 backdrop-blur-md border-b border-[var(--color-border)]' : 'bg-[var(--color-light)]/40 backdrop-blur-sm'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-[60] transition-transform duration-300 ${ (scrolled || isMobileMenuOpen) ? 'translate-y-0' : '-translate-y-full' } ${isMobileMenuOpen ? 'bg-[var(--color-light)]/95' : 'bg-[var(--color-light)]/95 backdrop-blur-md border-b border-[var(--color-border)]' }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-18">
           <Link href="/" className="flex items-center gap-2" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}>
-            <span className="text-xl font-normal text-[var(--color-primary)] font-serif tracking-wide">ANORRA</span>
+            {logoVisible ? (
+              <img src="/logo.png" alt="ANORRA" onError={() => setLogoVisible(false)} style={{ height: '64px', objectFit: 'contain' }} />
+            ) : (
+              <span className="text-xl font-normal text-[var(--color-primary)] font-serif tracking-wide">ANORRA</span>
+            )}
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8" aria-label="Main navigation">

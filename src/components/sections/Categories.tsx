@@ -22,11 +22,11 @@ export function Categories() {
   };
 
   return (
-    <section id="categories" className="py-8 bg-[var(--color-background)] border-y border-[var(--color-border)]">
+    <section id="categories" className="py-8 bg-[var(--color-background)] border-y border-[var(--color-secondary)]/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
           <div className="flex items-center gap-3">
-            <span className="text-sm font-medium text-[var(--color-textMuted)] uppercase tracking-widest">Explore</span>
+            <span className="text-sm font-medium text-[var(--color-secondary)] uppercase tracking-widest">Explore</span>
             <span className="text-lg font-semibold text-[var(--color-text)] font-serif">Collections</span>
           </div>
         </div>
@@ -38,14 +38,14 @@ export function Categories() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               onClick={() => handleCategoryClick(category.id)}
-              className={`group relative p-4 rounded-lg border transition-all duration-300 ${
+              className={`group relative p-4 rounded-lg border-2 transition-all duration-300 ${
                 activeCategory === category.id 
-                  ? 'bg-[var(--color-accent)] border-[var(--color-accent)]' 
-                  : 'bg-[var(--color-bg-card)] border-[var(--color-border)] hover:border-[var(--color-accent)]'
+                  ? 'bg-[var(--color-secondary)] border-[var(--color-secondary)]' 
+                  : 'bg-[var(--color-background)] border-[var(--color-secondary)]/30 hover:border-[var(--color-secondary)]'
               }`}
             >
-              <div className={`flex flex-col items-center gap-2 ${activeCategory === category.id ? 'text-[var(--color-primary)]' : 'text-[var(--color-text)]'}`}>
-                <div className={`p-2 rounded-full transition-all duration-300 ${activeCategory === category.id ? 'bg-[var(--color-primary)]/10' : 'bg-[var(--color-border)] group-hover:bg-[var(--color-accent)]/20'}`}>
+              <div className={`flex flex-col items-center gap-2 ${activeCategory === category.id ? 'text-[var(--color-light)]' : 'text-[var(--color-secondary)] group-hover:text-[var(--color-primary)]'}`}>
+                <div className={`p-2 rounded-full transition-all duration-300 ${activeCategory === category.id ? 'bg-[var(--color-light)]/20' : 'bg-[var(--color-secondary)]/10 group-hover:bg-[var(--color-secondary)]/20'}`}>
                   {categoryIcons[category.id] || categoryIcons.bespoke}
                 </div>
                 <span className="text-xs font-medium text-center">{category.title}</span>

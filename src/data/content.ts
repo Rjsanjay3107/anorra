@@ -16,8 +16,9 @@ export const contactInfo = {
 };
 
 export const socialLinks = [
-  { platform: 'instagram' as const, url: 'https://instagram.com/anorra', label: 'Instagram' },
-  { platform: 'linkedin' as const, url: 'https://linkedin.com/company/anorra', label: 'LinkedIn' },
+  { platform: 'facebook' as const, url: 'https://www.facebook.com/profile.php?id=61588326735827&rdid=AOESl8rSAZpmou4H&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F14Wjer9rsMu%2F#', label: 'Facebook' },
+  { platform: 'instagram' as const, url: 'https://www.instagram.com/anorra.official?igsh=MWRhMWZhNG1ybDQ1Mg==', label: 'Instagram' },
+  { platform: 'linkedin' as const, url: 'https://www.linkedin.com/company/anorra.in/', label: 'LinkedIn' },
 ];
 
 export const quickLinks = [
@@ -33,10 +34,10 @@ export const heroContent = {
 };
 
 export const aboutContent = {
-  brandStory: `ANORRA is a design-led, sustainable living brand that creates calm, thoughtful experiences across hospitality, HoReCa, wellness, and gifting. We don't sell products — we design how people arrive, eat, pause, and feel.`,
-  ukPositioning: `Rooted in India, designed for the world. We build from local materials, crafts, and rituals, and elevate them to global standards.`,
-  craftsmanship: `We design for the senses — how things look, feel, and sound. Every product creates a calm, tactile, and intentional experience, not just serve a function.`,
-  vision2026: `Sustainability is not a claim — it is a system. From sourcing to packaging, every element is traceable, low-impact, and responsibly made.`,
+  brandStory: `ANORRA is a design-led sustainable living brand creating calm, thoughtful experiences across hospitality, wellbeing, and gifting.`,
+  ukPositioning: `We design how people arrive, pause, eat, and feel — using sensorial design, tactile materials, and responsible sourcing. Every element is intentional, traceable, and made to belong quietly in everyday moments.`,
+  craftsmanship: `Rooted in India and designed for the world, ANORRA believes sustainability is not a feature, but a foundation — and good design should be felt, not announced.`,
+  vision2026: `From local materials to global standards, we elevate traditional crafts through thoughtful design. Our commitment to traceable sourcing and responsible creation ensures every piece carries both beauty and purpose.`,
 };
 
 export const queryFormSubjects = [
