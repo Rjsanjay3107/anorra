@@ -70,14 +70,14 @@ export function HeroBanner({ slides, autoInterval = 3000, slideSpeed = 0.5 }: He
                     muted
                     loop
                     playsInline
-                    className="w-auto h-full max-w-full object-contain px-8"
+                    className="w-full h-full object-cover md:object-contain"
                   />
                 </div>
               ) : (
                 <img
                   src={slide.src}
                   alt={slide.alt || `Slide ${index + 1}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover md:object-contain"
                 />
               )}
             </div>
