@@ -29,7 +29,7 @@ export function Products() {
               className="group bg-[var(--color-background)] border-2 border-[var(--color-border)] rounded-lg overflow-hidden hover:border-[var(--color-secondary)] hover:shadow-lg transition-all duration-500"
             >
               <div className="relative aspect-square overflow-hidden bg-[var(--color-secondary)]/10">
-                <div className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url(${product.images[0]?.src || '/images/products/placeholder.jpg'})` }} />
+                <div className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url(${encodeURI(product.images[0]?.src) || '/images/products/placeholder.jpg'})` }} />
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <Button onClick={() => openProductModal(product as any)} variant="secondary" size="sm">Quick View</Button>
                 </div>

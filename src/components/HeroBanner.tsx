@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
+import { scrollToSection } from '@/lib/utils';
 
 interface BannerSlide {
   src: string;
@@ -49,7 +50,7 @@ export function HeroBanner({ slides, autoInterval = 3000, slideSpeed = 0.5 }: He
   };
 
   return (
-    <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden" onClick={() => currentIndex === 0 && scrollToSection('query')}>
       {/* Mobile-only container with 26vh height */}
       <div className="md:hidden lg:hidden relative w-full h-[26vh]">
         <div className="absolute inset-0 w-full h-full">
