@@ -77,11 +77,13 @@ export function HeroBanner({ slides, autoInterval = 3000, slideSpeed = 0.5 }: He
                     />
                   </div>
                 ) : (
-                  <img
-                    src={slide.src}
-                    alt={slide.alt || `Slide ${index + 1}`}
-                    className="w-full h-full object-cover md:object-cover lg:object-cover object-cover"
-                  />
+                  <div className={`w-full h-full flex items-center justify-center ${index === 0 ? 'bg-black' : ''}`}>
+                    <img
+                      src={slide.src}
+                      alt={slide.alt || `Slide ${index + 1}`}
+                      className={`${index === 0 ? 'h-full w-auto' : 'w-full h-full object-cover'}`}
+                    />
+                  </div>
                 )}
               </div>
             );
@@ -114,11 +116,13 @@ export function HeroBanner({ slides, autoInterval = 3000, slideSpeed = 0.5 }: He
                   />
                 </div>
               ) : (
-                <img
-                  src={slide.src}
-                  alt={slide.alt || `Slide ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
+                <div className={`w-full h-full flex items-center justify-center ${index === 0 ? 'bg-black' : ''}`}>
+                  <img
+                    src={slide.src}
+                    alt={slide.alt || `Slide ${index + 1}`}
+                    className={`${index === 0 ? 'h-full w-auto' : 'w-full h-full object-cover'}`}
+                  />
+                </div>
               )}
             </div>
           );
