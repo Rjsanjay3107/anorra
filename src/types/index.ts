@@ -34,6 +34,7 @@ export interface NavItem {
 
 export interface ContactInfo {
   phone: string;
+  whatsapp?: string;
   email: string;
   address: string;
 }

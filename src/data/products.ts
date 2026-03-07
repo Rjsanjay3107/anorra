@@ -2,10 +2,10 @@ const categoryImages: Record<string, string> = {
   'amenity-kits': '/AmenityKits.jpeg',
   'serveware-tableware': '/Serveware&Tableware.jpeg',
   'spa-wellness': '/Spa&Wellness.jpeg',
-  'guest-delight-gifting': '/Guest Delight & Gifting.jpeg',
+  'guest-delight-gifting': '/GuestDelightGifting.jpeg',
   'restaurant-accessories': '/RestaurantAccessories.jpeg',
   'bar-accessories': '/BarAccessories.jpeg',
-  'corporate-stationery': '/CorporateStationery.jpeg',
+  'corporate-stationery': '/CorporateStationery.svg',
 };
 
 export const products = [

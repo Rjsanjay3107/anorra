@@ -17,6 +17,11 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                <a href={`https://wa.me/${contactInfo.whatsapp?.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-[var(--color-textMuted)] hover:text-[var(--color-accent)] transition-colors">
+                  WhatsApp: {contactInfo.whatsapp}
+                </a>
+              </li>
+              <li>
                 <a href={`mailto:${contactInfo.email}`} className="text-[var(--color-textMuted)] hover:text-[var(--color-accent)] transition-colors">
                   {contactInfo.email}
                 </a>
@@ -61,7 +66,8 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-[var(--color-border)] text-center">
-          <p className="text-[var(--color-primary)] text-sm">&copy; {new Date().getFullYear()} ANORRA. All rights reserved.</p>
+          <p className="text-[var(--color-primary)] text-sm mb-2">&copy; {new Date().getFullYear()} ANORRA. All rights reserved.</p>
+          <p className="text-[var(--color-textMuted)] text-xs">A child firm of Bamboo Aura</p>
         </div>
       </div>
     </footer>

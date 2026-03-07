@@ -42,6 +42,16 @@ const categoryIcons: Record<string, ReactNode> = {
   ),
 };
 
+const categoryBgImages: Record<string, string> = {
+  'amenity-kits': '/collection_bg/Amenity%20Kits.png',
+  'serveware-tableware': '/collection_bg/Serveware%20&%20Tableware.png',
+  'spa-wellness': '/collection_bg/Spa%20&%20Wellness.png',
+  'guest-delight-gifting': '/collection_bg/Guest%20Delight%20&%20Gifting.png',
+  'restaurant-accessories': '/collection_bg/Amenity%20Kits.png',
+  'bar-accessories': '/collection_bg/Bar%20Accessories.png',
+  'corporate-stationery': '/collection_bg/Corporate%20Stationery.png',
+};
+
 export function Categories() {
   const { activeCategory, setActiveCategory } = useUIStore();
   const [showFullscreen, setShowFullscreen] = useState(false);
@@ -82,20 +92,20 @@ export function Categories() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 onClick={() => handleCategoryClick(category.id)}
-                className={`flex-shrink-0 px-5 py-5 rounded-2xl border transition-all duration-300 snap-start min-w-[130px] flex flex-col items-center ${
+                className={`flex-shrink-0 px-5 py-5 rounded-2xl border transition-all duration-300 snap-start min-w-[130px] flex flex-col items-center relative overflow-hidden !bg-cover !bg-center ${
                   activeCategory === category.id 
-                    ? 'bg-[var(--color-secondary)] border-[var(--color-secondary)]' 
-                    : 'bg-[var(--color-card)] border-[var(--color-border)] hover:border-[var(--color-secondary)]'
+                    ? 'border-[var(--color-secondary)]' 
+                    : 'border-[var(--color-border)] hover:border-[var(--color-secondary)]'
                 }`}
+                style={{ backgroundImage: `url('${categoryBgImages[category.id]}')`, zIndex: 1 }}
               >
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${
-                  activeCategory === category.id ? 'bg-[var(--color-light)]/20' : 'bg-[var(--color-secondary)]/10'
-                }`}>
-                  <span className={`w-5 h-5 ${activeCategory === category.id ? 'text-[var(--color-light)]' : 'text-[var(--color-secondary)]'}`}>
+                <div className="absolute inset-0 bg-black/30" style={{ zIndex: 2 }} />
+                <div className={`relative w-10 h-10 rounded-full flex items-center justify-center mb-2`} style={{ zIndex: 3 }}>
+                  <span className="w-5 h-5 text-white">
                     {categoryIcons[category.id]}
                   </span>
                 </div>
-                <span className={`text-xs font-medium whitespace-nowrap text-center leading-tight ${activeCategory === category.id ? 'text-[var(--color-light)]' : 'text-[var(--color-text)]'}`}>{category.title}</span>
+                <span className="relative text-xs font-medium whitespace-nowrap text-center leading-tight text-white" style={{ zIndex: 3 }}>{category.title}</span>
               </motion.button>
             ))}
           </div>
