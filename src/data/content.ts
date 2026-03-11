@@ -12,7 +12,7 @@ export const brochureCta = {
 export const contactInfo = {
   phone: '+91 9644744976',
   whatsapp: '+91 9644744976',
-  email: 'hello@anorra.in',
+  email: 'info@anorra.in',
   address: 'A-08, Flower Valley, VIP Road, Raipur, Chhatisgarh, 492001',
 };
 
@@ -23,9 +23,10 @@ export const socialLinks = [
 ];
 
 export const quickLinks = [
-  { label: 'FAQs', modalId: 'faq' as const },
-  { label: 'Privacy Policy', modalId: 'privacy' as const },
-  { label: 'Terms & Conditions', modalId: 'terms' as const },
+  { label: 'Privacy Policy', href: '/pdf/PrivacyPolicy.pdf' },
+  { label: 'Terms & Conditions', href: '/pdf/TermsandConditions.pdf' },
+  { label: 'Shipping & Delivery Policy', href: '/pdf/ShippingAndDeliveryPolicy.pdf' },
+  { label: 'Refund & Cancellation Policy', href: '/pdf/RefundAndCancellationPolicy.pdf' },
 ];
 
 export const heroContent = {

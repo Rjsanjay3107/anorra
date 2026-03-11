@@ -19,7 +19,7 @@ export function About() {
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} className="relative">
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
-              <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/images/about/about-main.jpg)' }} />
+              <img src="/AboutUs.png" alt="About ANORRA" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-background)] via-transparent to-transparent" />
             </div>
           </motion.div>

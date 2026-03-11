@@ -40,8 +40,10 @@ export function Footer() {
             <h3 className="text-lg font-medium text-[var(--color-text)] mb-4 font-serif">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
-                <li key={link.modalId}>
-                  <span className="text-[var(--color-textMuted)]">{link.label}</span>
+                <li key={link.label}>
+                  <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-[var(--color-textMuted)] hover:text-[var(--color-accent)] transition-colors">
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>
