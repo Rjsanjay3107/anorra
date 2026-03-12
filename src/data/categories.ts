@@ -53,7 +53,7 @@ export const categories: Category[] = [
     id: 'amenity-kits',
     title: 'Amenity Kits',
     slug: 'amenity-kits',
-    description: 'Dental Kits, Grooming Kits, Hygiene & Utility, Care & Convenience, Wet Toiletries',
+    description: 'Thoughtful rituals for the modern traveller',
     image: {
       src: '/images/categories/amenity-kits.jpg',
       alt: 'Amenity Kits',
@@ -65,7 +65,7 @@ export const categories: Category[] = [
     id: 'serveware-tableware',
     title: 'Serveware & Tableware',
     slug: 'serveware-tableware',
-    description: 'Trays, Serveware, and Table Rituals',
+    description: 'Elevated dining rituals rooted in nature',
     image: {
       src: '/images/categories/serveware-tableware.jpg',
       alt: 'Serveware & Tableware',
@@ -77,7 +77,7 @@ export const categories: Category[] = [
     id: 'spa-wellness',
     title: 'Spa & Wellness',
     slug: 'spa-wellness',
-    description: 'Wellness & Spa experiences',
+    description: 'Place-based wellbeing for deep restoration',
     image: {
       src: '/images/categories/spa-wellness.jpg',
       alt: 'Spa & Wellness',
@@ -89,7 +89,7 @@ export const categories: Category[] = [
     id: 'guest-delight-gifting',
     title: 'Guest Delight & Gifting',
     slug: 'guest-delight-gifting',
-    description: 'Gifting and guest experiences',
+    description: 'Care-forward gifting that leaves a lasting impression',
     image: {
       src: '/images/categories/guest-delight-gifting.jpg',
       alt: 'Guest Delight & Gifting',
@@ -99,24 +99,12 @@ export const categories: Category[] = [
   },
   {
     id: 'restaurant-accessories',
-    title: 'Restaurant Accessories',
-    slug: 'restaurant-accessories',
-    description: 'Front of house and dining accessories',
+    title: 'Restaurant & Bar Accessories',
+    slug: 'restaurant-bar-accessories',
+    description: 'Refined essentials for sophisticated service environments',
     image: {
       src: '/images/categories/restaurant-accessories.jpg',
-      alt: 'Restaurant Accessories',
-      width: 800,
-      height: 600,
-    },
-  },
-  {
-    id: 'bar-accessories',
-    title: 'Bar Accessories',
-    slug: 'bar-accessories',
-    description: 'Beverage and bar essentials',
-    image: {
-      src: '/images/categories/bar-accessories.jpg',
-      alt: 'Bar Accessories',
+      alt: 'Restaurant & Bar Accessories',
       width: 800,
       height: 600,
     },
@@ -125,7 +113,7 @@ export const categories: Category[] = [
     id: 'corporate-stationery',
     title: 'Corporate Stationery',
     slug: 'corporate-stationery',
-    description: 'Office and corporate stationery solutions',
+    description: 'Minimalist design for professional ease',
     image: {
       src: '/images/categories/corporate-stationery.jpg',
       alt: 'Corporate Stationery',

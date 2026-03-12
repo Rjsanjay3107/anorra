@@ -47,8 +47,7 @@ const categoryBgImages: Record<string, string> = {
   'serveware-tableware': '/collection_bg/Serveware%20&%20Tableware.png',
   'spa-wellness': '/collection_bg/Spa%20&%20Wellness.png',
   'guest-delight-gifting': '/collection_bg/Guest%20Delight%20&%20Gifting.png',
-  'restaurant-accessories': '/collection_bg/Amenity%20Kits.png',
-  'bar-accessories': '/collection_bg/Bar%20Accessories.png',
+  'restaurant-accessories': '/collection_bg/Bar%20Accessories.png',
   'corporate-stationery': '/collection_bg/Corporate%20Stationery.png',
 };
 
