@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { GoogleSheetsService } from '@/lib/googleSheetsService';
+import { DirectGoogleSheetsService } from '@/lib/directGoogleSheetsService';
 
 export function GoogleSheetsStatus() {
   const [status, setStatus] = useState<'loading' | 'configured' | 'not-configured'>('loading');
@@ -9,7 +9,7 @@ export function GoogleSheetsStatus() {
 
   useEffect(() => {
     const checkConfiguration = () => {
-      const validation = GoogleSheetsService.validateConfiguration();
+      const validation = DirectGoogleSheetsService.validateConfiguration();
       
       if (validation.isValid) {
         setStatus('configured');

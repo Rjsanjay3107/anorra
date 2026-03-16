@@ -97,6 +97,19 @@ export class DirectGoogleSheetsService {
     }
   }
 
+  static validateConfiguration(): { isValid: boolean; issues: string[] } {
+    const issues: string[] = [];
+
+    if (!this.SHEET_ID) {
+      issues.push('Google Sheets ID is not configured');
+    }
+
+    return {
+      isValid: issues.length === 0,
+      issues
+    };
+  }
+
   // Method to create Google Apps Script for direct integration
   static getGoogleAppsScriptCode(): string {
     return `
