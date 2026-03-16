@@ -83,30 +83,51 @@ export function Categories() {
               Collections
             </button>
           </div>
-          <div className="flex overflow-x-auto gap-3 pb-2 snap-x snap-mandatory hide-scrollbar px-4">
-            {categories.slice(4).map((category, index) => (
-              <motion.button
-                key={category.id}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                onClick={() => handleCategoryClick(category.id)}
-                className={`flex-shrink-0 px-5 py-6 rounded-2xl border transition-all duration-300 snap-start w-[200px] md:w-[220px] flex flex-col items-center relative overflow-hidden !bg-cover !bg-center ${
-                  activeCategory === category.id 
-                    ? 'border-[var(--color-secondary)]' 
-                    : 'border-[var(--color-border)] hover:border-[var(--color-secondary)]'
-                }`}
-                style={{ backgroundImage: `url('${categoryBgImages[category.id]}')`, zIndex: 1 }}
-              >
-                <div className="absolute inset-0 bg-black/30" style={{ zIndex: 2 }} />
-                <div className={`relative w-14 h-14 rounded-full flex items-center justify-center mb-3`} style={{ zIndex: 3 }}>
-                  <span className="w-5 h-5 text-white">
-                    {categoryIcons[category.id]}
-                  </span>
-                </div>
-                <span className="relative text-xs font-medium whitespace-nowrap text-center leading-tight text-white" style={{ zIndex: 3 }}>{category.title}</span>
-              </motion.button>
-            ))}
+          <div className="relative">
+            {/* Left scroll indicator */}
+            <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[var(--color-background)] to-transparent z-10 pointer-events-none hidden md:block" />
+            {/* Right scroll indicator */}
+            <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[var(--color-background)] to-transparent z-10 pointer-events-none hidden md:block" />
+            
+            <div className="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory hide-scrollbar px-4 md:px-6 lg:px-8 scrollbar-thin scrollbar-thumb-[var(--color-secondary)]/30 scrollbar-track-transparent">
+              {categories.slice(4).map((category, index) => (
+                <motion.button
+                  key={category.id}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  onClick={() => handleCategoryClick(category.id)}
+                  className={`flex-shrink-0 px-5 py-6 rounded-2xl border transition-all duration-300 snap-start w-[200px] md:w-[220px] lg:w-[240px] flex flex-col items-center relative overflow-hidden !bg-cover !bg-center hover:scale-105 transform ${
+                    activeCategory === category.id 
+                      ? 'border-[var(--color-secondary)] shadow-lg' 
+                      : 'border-[var(--color-border)] hover:border-[var(--color-secondary)] hover:shadow-md'
+                  }`}
+                  style={{ backgroundImage: `url('${categoryBgImages[category.id]}')`, zIndex: 1 }}
+                >
+                  <div className="absolute inset-0 bg-black/30" style={{ zIndex: 2 }} />
+                  <div className={`relative w-14 h-14 rounded-full flex items-center justify-center mb-3`} style={{ zIndex: 3 }}>
+                    <span className="w-5 h-5 text-white">
+                      {categoryIcons[category.id]}
+                    </span>
+                  </div>
+                  <span className="relative text-xs font-medium whitespace-nowrap text-center leading-tight text-white" style={{ zIndex: 3 }}>{category.title}</span>
+                </motion.button>
+              ))}
+            </div>
+            
+            {/* Scroll hint for mobile */}
+            <div className="flex justify-center mt-2 md:hidden">
+              <div className="flex gap-1">
+                {[...Array(categories.slice(4).length)].map((_, i) => (
+                  <div 
+                    key={i} 
+                    className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                      i === 0 ? 'bg-[var(--color-secondary)]' : 'bg-[var(--color-border)]'
+                    }`} 
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
