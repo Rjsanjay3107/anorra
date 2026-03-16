@@ -69,7 +69,7 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-[var(--color-border)] text-center">
           <p className="text-[var(--color-primary)] text-sm mb-2">&copy; {new Date().getFullYear()} ANORRA. All rights reserved.</p>
-          <p className="text-[var(--color-textMuted)] text-xs">A child firm of Bamboo Aura</p>
+          <p className="text-[var(--color-textMuted)] text-xs">A subsidiary of Bamboo Aura</p>
         </div>
       </div>
     </footer>

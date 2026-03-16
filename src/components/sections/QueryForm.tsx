@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui';
 import { queryFormSubjects } from '@/data/content';
 import { useUIStore } from '@/stores/uiStore';
+import { DirectGoogleSheetsService } from '@/lib/directGoogleSheetsService';
 
 const defaultValues = { name: '', email: '', subject: '', message: '', consent: false, honeypot: '' };
 
@@ -27,14 +28,32 @@ export function QueryForm() {
     e.preventDefault();
     if (formData.honeypot) { setFormSubmitStatus('success'); return; }
     if (!validate()) return;
+    
     setFormSubmitting(true);
     try {
-      const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) });
-      if (!res.ok) throw new Error('Failed');
-      setFormSubmitStatus('success');
-      setFormData(defaultValues);
-    } catch { setFormSubmitStatus('error'); }
-    finally { setFormSubmitting(false); }
+      // Use Direct Google Sheets Service for real integration
+      const result = await DirectGoogleSheetsService.appendContactData({
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        consent: formData.consent
+      });
+
+      if (result.success) {
+        setFormSubmitStatus('success');
+        setFormData(defaultValues);
+        console.log('Contact form submitted successfully to Google Sheets');
+      } else {
+        console.error('Failed to submit to Google Sheets:', result.error);
+        setFormSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      setFormSubmitStatus('error');
+    } finally {
+      setFormSubmitting(false);
+    }
   };
 
   if (formSubmitStatus === 'success') {

@@ -91,7 +91,7 @@ export function Categories() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 onClick={() => handleCategoryClick(category.id)}
-                className={`flex-shrink-0 px-5 py-5 rounded-2xl border transition-all duration-300 snap-start min-w-[130px] flex flex-col items-center relative overflow-hidden !bg-cover !bg-center ${
+                className={`flex-shrink-0 px-5 py-6 rounded-2xl border transition-all duration-300 snap-start w-[200px] md:w-[220px] flex flex-col items-center relative overflow-hidden !bg-cover !bg-center ${
                   activeCategory === category.id 
                     ? 'border-[var(--color-secondary)]' 
                     : 'border-[var(--color-border)] hover:border-[var(--color-secondary)]'
@@ -99,7 +99,7 @@ export function Categories() {
                 style={{ backgroundImage: `url('${categoryBgImages[category.id]}')`, zIndex: 1 }}
               >
                 <div className="absolute inset-0 bg-black/30" style={{ zIndex: 2 }} />
-                <div className={`relative w-10 h-10 rounded-full flex items-center justify-center mb-2`} style={{ zIndex: 3 }}>
+                <div className={`relative w-14 h-14 rounded-full flex items-center justify-center mb-3`} style={{ zIndex: 3 }}>
                   <span className="w-5 h-5 text-white">
                     {categoryIcons[category.id]}
                   </span>
@@ -139,7 +139,7 @@ export function Categories() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                     onClick={() => handleFullscreenCategorySelect(category.id)}
-                    className={`p-6 rounded-2xl border transition-all duration-300 flex flex-col items-center justify-center aspect-square ${
+                    className={`p-6 rounded-2xl border transition-all duration-300 flex flex-col items-center justify-center w-[200px] md:w-[220px] ${
                       activeCategory === category.id 
                         ? 'bg-[var(--color-secondary)] border-[var(--color-secondary)]' 
                         : 'bg-[var(--color-card)] border-[var(--color-border)] hover:border-[var(--color-secondary)] hover:shadow-md'
@@ -148,11 +148,11 @@ export function Categories() {
                     <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-3 ${
                       activeCategory === category.id ? 'bg-[var(--color-light)]/20' : 'bg-[var(--color-secondary)]/10'
                     }`}>
-                      <span className={`w-6 h-6 ${activeCategory === category.id ? 'text-[var(--color-light)]' : 'text-[var(--color-secondary)]'}`}>
+                      <span className={`w-7 h-7 ${activeCategory === category.id ? 'text-[var(--color-light)]' : 'text-[var(--color-secondary)]'}`}>
                         {categoryIcons[category.id]}
                       </span>
                     </div>
-                    <span className={`text-sm font-medium text-center leading-tight ${activeCategory === category.id ? 'text-[var(--color-light)]' : 'text-[var(--color-text)]'}`}>{category.title}</span>
+                    <span className={`text-xs font-medium text-center leading-tight ${activeCategory === category.id ? 'text-[var(--color-light)]' : 'text-[var(--color-text)]'}`}>{category.title}</span>
                   </motion.button>
                 ))}
               </div>

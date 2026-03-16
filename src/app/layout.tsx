@@ -8,6 +8,14 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 export const metadata: Metadata = {
   title: "ANORRA | Calm, Thoughtful Living",
   description: "Design-led, sustainable living brand creating calm experiences across hospitality, wellness, and gifting.",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 10,
+    minimumScale: 0.5,
+    userScalable: true,
+    viewportFit: 'cover',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
