@@ -89,7 +89,7 @@ export function Categories() {
             {/* Right scroll indicator */}
             <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[var(--color-background)] to-transparent z-10 pointer-events-none hidden md:block" />
             
-            <div className="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory hide-scrollbar px-4 md:px-6 lg:px-8 scrollbar-thin scrollbar-thumb-[var(--color-secondary)]/30 scrollbar-track-transparent">
+            <div className="flex overflow-x-auto gap-3 pb-4 snap-x snap-mandatory hide-scrollbar px-4 md:px-6 lg:px-8">
               {categories.slice(4).map((category, index) => (
                 <motion.button
                   key={category.id}
