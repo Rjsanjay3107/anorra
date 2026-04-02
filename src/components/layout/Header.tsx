@@ -8,6 +8,15 @@ import { navItems, brochureCta } from '@/data/content';
 import { useUIStore } from '@/stores/uiStore';
 import { scrollToSection } from '@/lib/utils';
 
+const downloadCatalog = () => {
+  const link = document.createElement('a');
+  link.href = brochureCta.href;
+  link.download = 'Anorra Serveware Catalog.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [logoVisible, setLogoVisible] = useState(true);
@@ -49,7 +58,7 @@ export function Header() {
           </nav>
 
           <div className="hidden lg:block">
-            <Button onClick={() => window.open(brochureCta.href, '_blank')} variant="primary" size="sm">{brochureCta.label}</Button>
+            <Button onClick={downloadCatalog} variant="primary" size="sm">{brochureCta.label}</Button>
           </div>
 
           <button className="lg:hidden p-2 text-[var(--color-textMuted)] hover:text-[var(--color-primary)] transition-colors" onClick={toggleMobileMenu} aria-label="Toggle menu">
@@ -70,7 +79,7 @@ export function Header() {
                 </button>
               ))}
               <div className="pt-4 border-t border-[var(--color-border)]">
-                <Button onClick={() => window.open(brochureCta.href, '_blank')} variant="primary" className="w-full">{brochureCta.label}</Button>
+                <Button onClick={downloadCatalog} variant="primary" className="w-full">{brochureCta.label}</Button>
               </div>
             </div>
           </motion.div>
