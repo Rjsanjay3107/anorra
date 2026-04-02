@@ -5,7 +5,7 @@ export const navItems = [
 ];
 
 export const brochureCta = {
-  label: 'Download Catalog',
+  label: 'View Catalog',
   href: '/pdf/Anorra Serveware.pdf',
 };
 

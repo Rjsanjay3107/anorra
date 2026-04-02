@@ -9,12 +9,8 @@ import { useUIStore } from '@/stores/uiStore';
 import { scrollToSection } from '@/lib/utils';
 
 const downloadCatalog = () => {
-  const link = document.createElement('a');
-  link.href = brochureCta.href;
-  link.download = 'Anorra Serveware Catalog.pdf';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  // Open PDF in new tab - user can download from there
+  window.open(brochureCta.href, '_blank', 'noopener,noreferrer');
 };
 
 export function Header() {
