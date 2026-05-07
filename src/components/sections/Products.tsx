@@ -26,7 +26,7 @@ export function Products() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-[var(--color-background)] border-2 border-[var(--color-border)] rounded-lg overflow-hidden hover:border-[var(--color-secondary)] hover:shadow-lg transition-all duration-500"
+              className="group bg-[var(--color-background)] border-2 border-[var(--color-border)] rounded-lg overflow-hidden hover:border-[var(--color-secondary)] hover:shadow-lg transition-all duration-500 flex flex-col h-full"
             >
               <div className="relative aspect-square overflow-hidden bg-[var(--color-secondary)]/10">
                 <div className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url(${encodeURI(product.images[0]?.src) || '/images/products/placeholder.jpg'})` }} />
@@ -34,11 +34,11 @@ export function Products() {
                   <Button onClick={() => openProductModal(product as any)} variant="secondary" size="sm">Quick View</Button>
                 </div>
               </div>
-              <div className="p-5">
+              <div className="p-5 flex flex-col flex-grow">
                 <div className="text-xs text-[var(--color-secondary)] uppercase tracking-wider mb-2">{categories.find(c => c.id === product.category)?.title || product.category}</div>
                 <h3 className="text-lg font-medium text-[var(--color-text)] font-serif mb-2 group-hover:text-[var(--color-secondary)] transition-colors">{product.name}</h3>
-                <p className="text-[var(--color-secondary)] text-sm mb-4 line-clamp-2">{product.shortDescription}</p>
-                <Button onClick={() => openProductModal(product as any)} variant="secondary" size="sm" className="w-full">Enquire</Button>
+                <p className="text-[var(--color-secondary)] text-sm mb-4 line-clamp-2 flex-grow">{product.shortDescription}</p>
+                <Button onClick={() => openProductModal(product as any)} variant="secondary" size="sm" className="w-full mt-auto">Enquire</Button>
               </div>
             </motion.div>
           ))}

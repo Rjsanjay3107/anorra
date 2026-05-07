@@ -13,7 +13,7 @@ export const contactInfo = {
   phone: '+91 9644744976',
   whatsapp: '+91 9644744976',
   email: 'info@anorra.in',
-  address: 'A-08, Flower Valley, VIP Road, Raipur, Chhatisgarh, 492001',
+  address: 'Plot No. 10, Sector 3, District Centre, Manglam Place, Rohini, New Delhi – 110085, India',
 };
 
 export const socialLinks = [

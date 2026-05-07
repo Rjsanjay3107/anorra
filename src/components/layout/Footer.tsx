@@ -1,9 +1,15 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import { contactInfo, quickLinks, socialLinks } from '@/data/content';
 import { scrollToTop, formatPhone } from '@/lib/utils';
 
 export function Footer() {
+  const [year, setYear] = useState(2026); // Default fallback year
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
   return (
     <footer className="bg-[var(--color-bg-card)] border-t border-[var(--color-border)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
@@ -68,7 +74,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-[var(--color-border)] text-center">
-          <p className="text-[var(--color-primary)] text-sm mb-2">&copy; {new Date().getFullYear()} ANORRA. All rights reserved.</p>
+          <p className="text-[var(--color-primary)] text-sm mb-2">&copy; {year} ANORRA. All rights reserved.</p>
           <p className="text-[var(--color-textMuted)] text-xs">A subsidiary of Bamboo Aura</p>
         </div>
       </div>
